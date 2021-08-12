@@ -20,6 +20,7 @@ RUN openssl req \
 # Add root certificate to trusted store
 RUN cp /var/certs/testCA.pem /usr/local/share/ca-certificates/ \
     && chmod 644 /usr/local/share/ca-certificates/testCA.pem
+RUN update-ca-certificates
 
 # Create localhost certificate signing request
 RUN openssl req \
